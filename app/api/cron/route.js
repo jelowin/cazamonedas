@@ -1,3 +1,4 @@
+import { chromium } from "playwright";
 import { db } from "@vercel/postgres";
 
 export async function GET() {
