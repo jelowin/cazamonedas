@@ -131,8 +131,8 @@ export async function GET() {
     await context.close();
     await browser.close();
 
+    console.log("Inserting data into DB...");
     for (const data of scrappedData) {
-      console.log("Inserting data into DB...");
       await client.sql`
         INSERT INTO coins(country, description, image, issueDate, issueVolum, reason, year)
         VALUES (${data.country}, ${data.description}, ${data.image}, ${data.issueDate}, ${data.issueVolum}, ${data.reason}, ${data.year})
@@ -140,14 +140,8 @@ export async function GET() {
       `;
     }
 
-    return new NextResponse.json(
-      {
-        message: "Rows inserted",
-      },
-      {
-        status: 200,
-      }
-    );
+    await db.end();
+    return NextResponse.json({ message: "Rows created", status: 201 });
   } catch (e) {
     console.log("ERROR SCRAPPING --- ", e);
   }
