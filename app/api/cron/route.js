@@ -11,6 +11,10 @@ export async function GET() {
   let image;
   let year;
 
+  if (process.env.IS_BUILD) {
+    return;
+  }
+
   const scrappedData = [];
   const client = await db.connect();
 
