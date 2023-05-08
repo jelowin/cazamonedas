@@ -24,9 +24,7 @@ function queryClient(name, query) {
 }
 export default async function Home() {
   const { rows } = await queryClient("coins", () =>
-    fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/coins`).then((res) =>
-      res.json()
-    )
+    fetch(`${process.env.VERCEL_ENV}/api/coins`).then((res) => res.json())
   );
 
   return (
