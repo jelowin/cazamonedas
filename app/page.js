@@ -3,7 +3,7 @@ import BaseLayout from "@/BaseLayout";
 import CardGrid, { CardGridSkeleton } from "@/CardGrid";
 import FlagCarousel from "@/FlagCarousel";
 import Hero from "@/Hero";
-// import { fetchUrl } from "../utils";
+import { fetchUrl } from "../utils";
 
 // const fetchMap = new Map();
 
@@ -15,17 +15,27 @@ import Hero from "@/Hero";
 //   return fetchMap.get(name);
 // }
 
+async function getData() {
+  const res = await fetch(`${fetchUrl}/api/coins`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
 export default async function Home() {
   // const { rows } = await queryClient("coins", () =>
   //   fetch(`${fetchUrl}/api/coins`).then((res) => res.json())
   // );
+  const { rows } = await getData();
 
   return (
     <BaseLayout>
       <Hero />
       <FlagCarousel />
       <Suspense fallback={<CardGridSkeleton />}>
-        <CardGrid data={[]} />;
+        <CardGrid data={rows} />;
       </Suspense>
     </BaseLayout>
   );
