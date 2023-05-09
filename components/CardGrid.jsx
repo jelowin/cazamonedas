@@ -64,8 +64,8 @@ export default async function CardGrid({ data = [] }) {
 export function CardGridSkeleton() {
   return (
     <SimpleGrid minChildWidth="250px" spacing="24px">
-      {Array.from(Array(8)).map(() => (
-        <Skeleton height="455px" width="auto" />
+      {Array.from(Array(8)).map((index) => (
+        <Skeleton key={index} height="455px" width="auto" />
       ))}
     </SimpleGrid>
   );
