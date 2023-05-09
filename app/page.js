@@ -3,6 +3,7 @@ import BaseLayout from "@/BaseLayout";
 import CardGrid, { CardGridSkeleton } from "@/CardGrid";
 import FlagCarousel from "@/FlagCarousel";
 import Hero from "@/Hero";
+import { fetchUrl } from "../utils";
 
 // async function getData() {
 //   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/coins`);
@@ -24,7 +25,7 @@ function queryClient(name, query) {
 }
 export default async function Home() {
   const { rows } = await queryClient("coins", () =>
-    fetch(`${process.env.VERCEL_ENV}/api/coins`).then((res) => res.json())
+    fetch(`${fetchUrl}/api/coins`).then((res) => res.json())
   );
 
   return (
