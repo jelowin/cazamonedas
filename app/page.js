@@ -5,15 +5,6 @@ import FlagCarousel from "@/FlagCarousel";
 import Hero from "@/Hero";
 import { fetchUrl } from "../utils";
 
-// async function getData() {
-//   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/coins`);
-//   if (!res.ok) {
-//     throw new Error("Failed to fetch data");
-//   }
-
-//   return res.json();
-// }
-
 const fetchMap = new Map();
 
 function queryClient(name, query) {
