@@ -16,8 +16,13 @@ import { fetchUrl } from "../utils";
 // }
 
 async function getData() {
-  const res = await fetch(`${fetchUrl}/api/coins`).then((res) => res.json());
-  return res;
+  const res = await fetch(`${fetchUrl}/api/coins`);
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return await res.json();
 }
 
 export default async function Home() {
