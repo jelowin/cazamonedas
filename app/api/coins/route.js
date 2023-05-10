@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import { sql } from "@vercel/postgres";
 
 export async function GET() {
-  const { rows } = await sql`SELECT * FROM coins ORDER BY year LIMIT 5;`;
-  // const { rows } = await sql`SELECT * FROM coins WHERE country > ${country};`;
+  const { rows } = await sql`SELECT * FROM coins ORDER BY year;`;
   return NextResponse.json(rows);
 }

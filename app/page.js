@@ -13,18 +13,19 @@ async function getData() {
     throw new Error(message);
   }
 
-  return await response.json();
+  const data = await response.json();
+  return data;
 }
 
 export default async function Home() {
-  const { rows } = getData();
+  const data = await getData();
 
   return (
     <BaseLayout>
       <Hero />
       <FlagCarousel />
       <Suspense fallback={<CardGridSkeleton />}>
-        <CardGrid data={rows} />;
+        <CardGrid data={data} />;
       </Suspense>
     </BaseLayout>
   );

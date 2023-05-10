@@ -17,7 +17,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-export default async function CardGrid({ data = [] }) {
+export default async function CardGrid({ data }) {
   return (
     <SimpleGrid minChildWidth="250px" spacing="24px">
       {data?.length ? (
