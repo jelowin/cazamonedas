@@ -6,13 +6,15 @@ import Hero from "@/Hero";
 import { fetchUrl } from "../utils";
 
 async function getData() {
-  const res = await fetch(`${fetchUrl}/api/coins`);
+  const response = await fetch(`${fetchUrl}/api/coins`);
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
+  if (!response.ok) {
+    const message = `An error has occured fetching data: ${response.status}`;
+    throw new Error(message);
   }
 
-  return res.json();
+  const data = await response.json();
+  return data;
 }
 
 export default async function Home() {
