@@ -16,27 +16,27 @@ import { fetchUrl } from "../utils";
 // }
 
 async function getData() {
-  const res = await fetch(`${fetchUrl}/api/coins`);
+  const res = await fetch("https://jsonplaceholder.typicode.com/todos");
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
 
-  return await res.json();
+  return res.json();
 }
 
 export default async function Home() {
   // const { rows } = await queryClient("coins", () =>
   //   fetch(`${fetchUrl}/api/coins`).then((res) => res.json())
   // );
-  const { rows } = await getData();
+  const data = await getData();
 
   return (
     <BaseLayout>
       <Hero />
       <FlagCarousel />
       <Suspense fallback={<CardGridSkeleton />}>
-        <CardGrid data={rows} />;
+        <CardGrid data={data} />;
       </Suspense>
     </BaseLayout>
   );
