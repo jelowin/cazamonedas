@@ -6,7 +6,7 @@ import Hero from "@/Hero";
 import { fetchUrl } from "../utils";
 
 async function getData() {
-  const response = await fetch(`${fetchUrl}/api/coins`);
+  const response = await fetch("https://jsonplaceholder.typicode.com/todos");
 
   if (!response.ok) {
     const message = `An error has occured fetching data: ${response.status}`;
@@ -19,14 +19,14 @@ async function getData() {
 
 export default async function Home() {
   const data = await getData();
-  const { rows } = data;
+  // const { rows } = data;
 
   return (
     <BaseLayout>
       <Hero />
       <FlagCarousel />
       <Suspense fallback={<CardGridSkeleton />}>
-        <CardGrid data={rows} />;
+        <CardGrid data={data} />;
       </Suspense>
     </BaseLayout>
   );
