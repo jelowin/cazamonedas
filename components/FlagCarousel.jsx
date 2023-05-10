@@ -16,8 +16,13 @@ export default function FlagCarousel() {
   };
 
   return (
-    <Box w="full" ml="auto" mr="auto" px={4} boxSizing="border-box">
-      <Stack direction="row" align="center" spacing={4}>
+    <Box w="full" ml="auto" mr="auto" boxSizing="border-box">
+      <Stack
+        direction="row"
+        align="center"
+        spacing={4}
+        style={{ overflowX: "auto" }}
+      >
         {Object.entries(countries).map(([key, value]) => (
           <Button key={key} onClick={handleFilter}>
             <ReactCountryFlag
@@ -25,7 +30,6 @@ export default function FlagCarousel() {
               countryCode={key}
               style={{
                 fontSize: "2em",
-                lineHeight: "2em",
               }}
               aria-label={value}
             />

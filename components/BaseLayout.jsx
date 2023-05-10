@@ -11,6 +11,7 @@ export default function BaseLayout({ children }) {
       ml="auto"
       mr="auto"
       my={16}
+      px={4}
       w="full"
     >
       <Stack spacing={16}>{children}</Stack>

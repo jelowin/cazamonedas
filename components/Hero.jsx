@@ -3,7 +3,7 @@ import { Box, Heading, Stack, Text } from "@chakra-ui/react";
 
 export default function Hero() {
   return (
-    <Box w="full" ml="auto" mr="auto" px={4} boxSizing="border-box">
+    <Box w="full" ml="auto" mr="auto" boxSizing="border-box">
       <Stack align="center" spacing={4}>
         <Heading
           as="h1"

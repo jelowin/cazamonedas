@@ -18,45 +18,39 @@ import {
 
 export default async function CardGrid({ data = [] }) {
   return (
-    <SimpleGrid
-      // spacing={4}
-      // templateColumns="repeat(auto-fill, minmax(250px, 1fr))"
-      minChildWidth="250px"
-      spacing="24px"
-    >
+    <SimpleGrid minChildWidth="250px" spacing="24px">
       {data?.map((coin) => (
-        <p key={coin.id}>{coin.id}</p>
-        // <Card key={coin.id} maxW="sm" size="md" variant="elevated">
-        //   <CardBody>
-        //     <Center>
-        //       <Img
-        //         alt={coin.reason}
-        //         boxSize="200px"
-        //         src={coin.image}
-        //         objectFit="cover"
-        //       />
-        //     </Center>
-        //     <Stack mt="6" spacing="3">
-        //       <Flex justify="space-between">
-        //         <Heading size="md">{coin.country}</Heading>
-        //         <Text as="b" fontSize="lg">
-        //           {coin.year}
-        //         </Text>
-        //       </Flex>
-        //       <Text fontSize="md">{coin.reason}</Text>
-        //     </Stack>
-        //   </CardBody>
-        //   <CardFooter>
-        //     <ButtonGroup spacing="2">
-        //       <Button variant="solid" colorScheme="blue">
-        //         La tengo
-        //       </Button>
-        //       <Button variant="ghost" colorScheme="blue">
-        //         La quiero
-        //       </Button>
-        //     </ButtonGroup>
-        //   </CardFooter>
-        // </Card>
+        <Card key={coin.id} maxW="sm" size="md" variant="elevated">
+          <CardBody>
+            <Center>
+              <Img
+                alt={coin.reason}
+                boxSize="200px"
+                src={coin.image}
+                objectFit="cover"
+              />
+            </Center>
+            <Stack mt="6" spacing="3">
+              <Flex justify="space-between">
+                <Heading size="md">{coin.country}</Heading>
+                <Text as="b" fontSize="lg">
+                  {coin.year}
+                </Text>
+              </Flex>
+              <Text fontSize="md">{coin.reason}</Text>
+            </Stack>
+          </CardBody>
+          <CardFooter>
+            <ButtonGroup spacing="2">
+              <Button variant="solid" colorScheme="blue">
+                La tengo
+              </Button>
+              <Button variant="ghost" colorScheme="blue">
+                La quiero
+              </Button>
+            </ButtonGroup>
+          </CardFooter>
+        </Card>
       ))}
     </SimpleGrid>
   );
