@@ -13,11 +13,11 @@ async function getData() {
     throw new Error(message);
   }
 
-  return response.json();
+  return await response.json();
 }
 
 export default async function Home() {
-  const { rows } = await getData();
+  const { rows } = getData();
 
   return (
     <BaseLayout>
