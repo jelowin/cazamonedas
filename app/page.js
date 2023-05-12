@@ -6,7 +6,7 @@ import Hero from "@/Hero";
 import { fetchUrl } from "../utils";
 
 async function getData() {
-  const response = await fetch(`${fetchUrl}/api/coins`);
+  const response = await fetch(`${fetchUrl}/api/coins`, { cache: "no-store" });
 
   if (!response.ok) {
     const message = `An error has occured fetching data: ${response.status}`;
