@@ -1,6 +1,6 @@
-import { Suspense } from "react";
+// import { Suspense } from "react";
 import BaseLayout from "@/BaseLayout";
-import CardGrid, { CardGridSkeleton } from "@/CardGrid";
+//import CardGrid, { CardGridSkeleton } from "@/CardGrid";
 import FlagCarousel from "@/FlagCarousel";
 import Hero from "@/Hero";
 import { fetchUrl } from "../utils";
@@ -24,9 +24,9 @@ export default async function Home() {
     <BaseLayout>
       <Hero />
       <FlagCarousel />
-      <Suspense fallback={<CardGridSkeleton />}>
+      {/* <Suspense fallback={<CardGridSkeleton />}>
         <CardGrid data={data} />;
-      </Suspense>
+      </Suspense> */}
     </BaseLayout>
   );
 }
