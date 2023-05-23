@@ -1,6 +1,6 @@
-// import { Suspense } from "react";
+import { Suspense } from "react";
+import CardGrid, { CardGridSkeleton } from "@/CardGrid";
 import BaseLayout from "@/BaseLayout";
-//import CardGrid, { CardGridSkeleton } from "@/CardGrid";
 import FlagCarousel from "@/FlagCarousel";
 import Hero from "@/Hero";
 import { fetchUrl } from "../utils";
@@ -19,14 +19,15 @@ async function getData() {
 
 export default async function Home() {
   const data = await getData();
+  console.log({ data });
 
   return (
     <BaseLayout>
       <Hero />
       <FlagCarousel />
-      {/* <Suspense fallback={<CardGridSkeleton />}>
-        <CardGrid data={data} />;
-      </Suspense> */}
+      <Suspense fallback={<CardGridSkeleton />}>
+        <CardGrid data={data} />
+      </Suspense>
     </BaseLayout>
   );
 }
