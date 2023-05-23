@@ -1,22 +1,20 @@
 "use client";
-import { Box, Center, Text } from "@chakra-ui/react";
-import CardGrid from "@/CardGrid";
+import { Box, Stack } from "@chakra-ui/react";
 
 export default function BaseLayout({ children }) {
   return (
     <Box
       as="main"
-      w="full"
+      boxSizing="border-box"
+      flex="1 1 0"
+      maxW="container.xl"
       ml="auto"
       mr="auto"
-      maxW="container.lg"
+      my={16}
       px={4}
-      boxSizing="border-box"
+      w="full"
     >
-      <Center>
-        <Text fontSize="6xl">Box 1</Text>
-      </Center>
-      <CardGrid />
+      <Stack spacing={16}>{children}</Stack>
     </Box>
   );
 }
