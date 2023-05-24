@@ -140,7 +140,7 @@ export async function GET() {
       await client.sql`
         INSERT INTO coins(country, description, image, issueDate, issueVolum, reason, year)
         VALUES (${data.country}, ${data.description}, ${data.image}, ${data.issueDate}, ${data.issueVolum}, ${data.reason}, ${data.year})
-        ON CONFLICT(description) DO NOTHING
+        ON CONFLICT(reason) DO NOTHING
       `;
     }
 
