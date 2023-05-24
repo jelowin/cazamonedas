@@ -3,10 +3,10 @@ import CardGrid, { CardGridSkeleton } from "@/CardGrid";
 import BaseLayout from "@/BaseLayout";
 import FlagCarousel from "@/FlagCarousel";
 import Hero from "@/Hero";
-import { fetchUrl } from "../utils";
+import { BASE_URL } from "../utils";
 
 async function getData() {
-  const response = await fetch(`${fetchUrl}/api/coins`, { cache: "no-store" });
+  const response = await fetch(`${BASE_URL}/api/coins`, { cache: "no-store" });
 
   if (!response.ok) {
     const message = `An error has occured fetching data: ${response.status}`;
@@ -19,7 +19,6 @@ async function getData() {
 
 export default async function Home() {
   const data = await getData();
-  console.log({ data });
 
   return (
     <BaseLayout>
