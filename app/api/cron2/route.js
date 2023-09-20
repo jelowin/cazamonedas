@@ -135,6 +135,6 @@ export async function GET() {
     console.log("END: Rows created");
     return NextResponse.json({ message: "Rows created", status: 201 });
   } catch (e) {
-    console.log("ERROR SCRAPPING --- ", e);
+    return NextResponse.json({ message: "Scrapper error", status: 500 });
   }
 }
