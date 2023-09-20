@@ -12,9 +12,9 @@ export default function Hero() {
         >
           Caza monedas
         </Heading>
-        <Text as="p" fontSize={{ base: "xl", md: "2xl" }} align="center">
-          Colecciona todas las monedas de dos euros conmemorativas de la Unión
-          Europea
+        <Text as="p" fontSize={{ base: "md", md: "xl" }} align="center">
+          Encuentra todas las monedas de colección de dos euros conmemorativas
+          de la Unión Europea.
         </Text>
       </Stack>
     </Box>

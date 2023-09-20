@@ -29,7 +29,10 @@ export async function GET() {
     );
 
     const links = await page.$$eval("a.box", (links) => {
-      return links.map((link) => link.href);
+      console.log(links);
+      return links
+        .filter((link) => link.href.includes("2023"))
+        .map((link) => link.href);
     });
 
     for (const link of links) {
@@ -44,16 +47,22 @@ export async function GET() {
         try {
           country = await elementHandle.$eval("h3", (node) => node.textContent);
         } catch {
-          country = null;
+          country = "null";
         }
 
         try {
           reason = await elementHandle.$eval(
-            "p:nth-of-type(1)",
-            (node) => node.textContent
+            ".content-box:nth-child(2) p",
+            (node) => node
           );
+          console.log("REASON----", reason.textContent);
+          if (reason.textContent === "") {
+            reason = node.textContent.split(":")[1];
+          } else {
+            reason = reason.textContent;
+          }
         } catch {
-          reason = null;
+          reason = "null";
         }
 
         try {
@@ -62,7 +71,7 @@ export async function GET() {
             (node) => node.textContent
           );
         } catch {
-          description = null;
+          description = "null";
         }
 
         try {
@@ -88,7 +97,7 @@ export async function GET() {
             );
           }
         } catch {
-          issueVolum = null;
+          issueVolum = "null";
         }
 
         try {
@@ -104,13 +113,13 @@ export async function GET() {
             );
           }
         } catch {
-          issueDate = null;
+          issueDate = "null";
         }
 
         try {
           year = link.split("/").pop().split(".").shift().split("_").pop();
         } catch {
-          year = null;
+          year = "null";
         }
 
         scrappedData.push({
@@ -145,6 +154,7 @@ export async function GET() {
     }
 
     await db.end();
+    console.log("END: Rows created");
     return NextResponse.json({ message: "Rows created", status: 201 });
   } catch (e) {
     console.log("ERROR SCRAPPING --- ", e);

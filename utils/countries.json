@@ -1,0 +1,28 @@
+{
+  "countries": [
+    { "en": "Andorra", "es": "Andorra", "code": "AD" },
+    { "en": "Austria", "es": "Austria", "code": "AT" },
+    { "en": "Belgium", "es": "Bélgica", "code": "BE" },
+    { "en": "Vatican City", "es": "Ciudad del Vaticano", "code": "VA" },
+    { "en": "Croatia", "es": "Croacia", "code": "HR" },
+    { "en": "Cyprus", "es": "Chipre", "code": "CY" },
+    { "en": "Estonia", "es": "Estonia", "code": "EE" },
+    { "en": "Finland", "es": "Finlandia", "code": "FI" },
+    { "en": "France", "es": "Francia", "code": "FR" },
+    { "en": "Germany", "es": "Alemania", "code": "DE" },
+    { "en": "Greece", "es": "Grecia", "code": "GR" },
+    { "en": "Ireland", "es": "Irlanda", "code": "IE" },
+    { "en": "Italy", "es": "Italia", "code": "IT" },
+    { "en": "Latvia", "es": "Letonia", "code": "LV" },
+    { "en": "Lithuania", "es": "Lituania", "code": "LT" },
+    { "en": "Luxembourg", "es": "Luxemburgo", "code": "LU" },
+    { "en": "Malta", "es": "Malta", "code": "MT" },
+    { "en": "Monaco", "es": "Mónaco", "code": "MC" },
+    { "en": "Netherlands", "es": "Países Bajos", "code": "NL" },
+    { "en": "Portugal", "es": "Portugal", "code": "PT" },
+    { "en": "San Marino", "es": "San Marino", "code": "SM" },
+    { "en": "Slovakia", "es": "Eslovaquia", "code": "SK" },
+    { "en": "Slovenia", "es": "Eslovenia", "code": "SI" },
+    { "en": "Spain", "es": "España", "code": "ES" }
+  ]
+}
