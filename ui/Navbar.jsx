@@ -139,7 +139,7 @@ export default function Navbar() {
                 </Drawer>
               </>
             ) : (
-              <Stack direction={"row"} spacing={6}>
+              <Stack alignItems="center" direction={"row"} spacing={6}>
                 <NavLink href="/home">Home</NavLink>
                 <NavLink href="/coins">Todas las monedas</NavLink>
                 <NavLink href="/mycoins">Mis monedas</NavLink>
